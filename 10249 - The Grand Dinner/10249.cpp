@@ -23,7 +23,6 @@ int main() {
     int te, ta;
 
     while (true) {
-        start:
         cin >> te >> ta;
         if (te == 0 && ta == 0) break;
 
@@ -51,7 +50,7 @@ int main() {
         //less tables than the members of the largest team
         if (tables_v.size() < teams_v[0].not_seated) {
             cout << '0' << endl;
-            goto start;
+            continue;
         }
 
         //for each table assign one seat to each team, then sort teams
@@ -71,7 +70,7 @@ int main() {
         for (const auto &team : teams_v) {
             if (team.not_seated > 0) {
                 cout << '0' << endl;
-                goto start;
+                goto end;
             }
         }
 
@@ -89,6 +88,7 @@ int main() {
             }
             cout << endl;
         }
+        end:;
     }
     return 0;
 }
